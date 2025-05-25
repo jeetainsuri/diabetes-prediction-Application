@@ -4,7 +4,14 @@ import pickle
 import streamlit as st
 
 # Load the saved model
-diabetes_model = pickle.load(open('random_forest_data.pkl', 'rb'))
+try:
+    diabetes_model = pickle.load(open('random_forest_data.pkl', 'rb'))
+except FileNotFoundError:
+    st.error("Model file not found. Please place 'random_forest_data.pkl' in the directory.")
+    st.stop()
+except Exception as e:
+    st.error(f"Error loading the model: {e}")
+    st.stop()
 
 # Application Title
 st.set_page_config(page_title="Diabetes Prediction App", layout="centered")
