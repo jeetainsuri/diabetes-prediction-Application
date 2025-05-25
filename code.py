@@ -30,7 +30,8 @@ def user_input():
      blood_pressure=  st.sidebar.slider("Blood Pressure", 0, 140, 70)
      skin_thickness= st.sidebar.slider("Skin Thickness", 0, 100, 20)
      insulin = st.sidebar.slider("Insulin", 0, 900, 80)
-     bmi= st.sidebar.slider("BMI", 0.0, 70.0, 25.0)dpf = st.sidebar.slider("Diabetes Pedigree Function", 0.0,  3.0, 0.5)
+     bmi= st.sidebar.slider("BMI", 0.0, 70.0, 25.0)
+     dpf = st.sidebar.slider("Diabetes Pedigree Function", 0.0,  3.0, 0.5)
      age = st.sidebar.slider("Age", 21,100,30)
      data = {'Pregnancies': pregnancies, 'Glucose' : glucose, 'BloodPressure': blood_pressure, 'SkinThickness': skin_thickness, 'Insulin': insulin, 'BMI': bmi, 'DiabetesPedigreeFunction': dpf, 'Age': age}
      return pd.DataFrame([data])
