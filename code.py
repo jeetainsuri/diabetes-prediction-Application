@@ -5,7 +5,8 @@ import streamlit as st
 
 # Load the saved model
 try:
-    diabetes_model = pickle.load(open('random_forest_data.pkl', 'rb'))
+    data = pickle.load(open('random_forest_data.pkl', 'rb'))
+    diabetes_model= data['trained_data']
 except FileNotFoundError:
     st.error("Model file not found. Please place 'random_forest_data.pkl' in the directory.")
     st.stop()
@@ -40,8 +41,8 @@ def user_input():
      bmi= st.sidebar.slider("BMI", 0.0, 70.0, 25.0)
      dpf = st.sidebar.slider("Diabetes Pedigree Function", 0.0,  3.0, 0.5)
      age = st.sidebar.slider("Age", 21,100,30)
-     data = {'Pregnancies': pregnancies, 'Glucose' : glucose, 'BloodPressure': blood_pressure, 'SkinThickness': skin_thickness, 'Insulin': insulin, 'BMI': bmi, 'DiabetesPedigreeFunction': dpf, 'Age': age}
-     return pd.DataFrame([data])
+     data1 = {'Pregnancies': pregnancies, 'Glucose' : glucose, 'BloodPressure': blood_pressure, 'SkinThickness': skin_thickness, 'Insulin': insulin, 'BMI': bmi, 'DiabetesPedigreeFunction': dpf, 'Age': age}
+     return pd.DataFrame([data1])
 
 input_df = user_input()
 
